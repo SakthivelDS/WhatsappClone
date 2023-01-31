@@ -36,7 +36,7 @@ function ChatScreen({chat, messages}) {
           <Message key={message.id} user={message.data().user} message={{...message.data(), timestamp: message.data().timestamp?.toDate().getTime()}} />
         ))
       }
-      scrollToBottom();
+      
   }
 
   const sendMessage = (e)=>{
@@ -56,7 +56,7 @@ function ChatScreen({chat, messages}) {
       photoURL: user.photoURL   
     })
     setInput("");
-    scrollToBottom();
+    
   }
 
   const recipientEmail = getRecipientEmail(chat.users, user);
@@ -106,7 +106,9 @@ function ChatScreen({chat, messages}) {
           </HeaderIcons>
       </Header>
       <MessageContainer>
-        {showMessages()}
+        {showMessages();
+        scrollToBottom();
+        }
         <EndOfMessage  ref={endOfMessageRef} />
       </MessageContainer>
       <InputContainer>
