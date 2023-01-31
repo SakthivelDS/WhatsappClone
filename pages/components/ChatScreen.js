@@ -10,7 +10,6 @@ import { auth, db } from '../../firebase';
 import getRecipientEmail from '../../utils/getRecipientEmail';
 import Message from './Message';
 import TimeAgo from "timeago-react"
-import { useEffect } from "react"
 
 function ChatScreen({chat, messages}) {
   const [user] = useAuthState(auth);
@@ -36,7 +35,6 @@ function ChatScreen({chat, messages}) {
           <Message key={message.id} user={message.data().user} message={{...message.data(), timestamp: message.data().timestamp?.toDate().getTime()}} />
         ))
       }
-      
   }
 
   const sendMessage = (e)=>{
@@ -56,7 +54,7 @@ function ChatScreen({chat, messages}) {
       photoURL: user.photoURL   
     })
     setInput("");
-    
+    scrollToBottom();
   }
 
   const recipientEmail = getRecipientEmail(chat.users, user);
@@ -72,10 +70,6 @@ function ChatScreen({chat, messages}) {
         block: "start"
       });
   }
-  useEffect(()=>{
-    console.log("Called UseEffect");
-    scrollToBottom();
-  },[])
 
   return (
     <Container>
@@ -100,14 +94,12 @@ function ChatScreen({chat, messages}) {
             }
           </HeaderInformation>
           <HeaderIcons>
-              <button onClick={scrollToBottom}>Scroll</button>
               <AttachFile />
               <MoreVert />
           </HeaderIcons>
       </Header>
       <MessageContainer>
-        {showMessages()
-        }
+        {showMessages()}
         <EndOfMessage  ref={endOfMessageRef} />
       </MessageContainer>
       <InputContainer>
