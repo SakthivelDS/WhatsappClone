@@ -78,12 +78,19 @@ function ChatScreen({chat, messages}) {
       block:"start"
      })
   }
-  
+  const fastScrollToBottom = ()=>{
+    endOfMessageRef.current.scrollIntoView({
+      
+       block: "start"
+     });
+  }
+
   useEffect(()=>{
-    scrollToBottom();
-    console.log("Function is getting Called...");
-  },[])
-  
+    const interval = setInterval(fastScrollToBottom,100);
+    return ()=>{
+      clearInterval(interval);
+    }
+  })
   
   return (
     <Container>
