@@ -79,7 +79,7 @@ function ChatScreen({chat, messages}) {
   }
   
   useEffect(()=>{
-    scrollToBottom();
+    scrollToBottomFirst();
     console.log("Function Called...");
   },[])
   
