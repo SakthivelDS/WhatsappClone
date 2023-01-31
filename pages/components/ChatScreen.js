@@ -106,7 +106,7 @@ function ChatScreen({chat, messages}) {
           </HeaderIcons>
       </Header>
       <MessageContainer>
-        {showMessages() ? scrollToBottom(): null
+        {showMessages() ? console.log("called"): null
         }
         <EndOfMessage  ref={endOfMessageRef} />
       </MessageContainer>
