@@ -80,7 +80,7 @@ function ChatScreen({chat, messages}) {
   
   useEffect(()=>{
     scrollToBottom();
-    console.log("Function Called...");
+    console.log("Function is Called...");
   },[])
   
   
