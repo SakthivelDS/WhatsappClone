@@ -10,6 +10,7 @@ import { auth, db } from '../../firebase';
 import getRecipientEmail from '../../utils/getRecipientEmail';
 import Message from './Message';
 import TimeAgo from "timeago-react"
+import { useEffect } from "react"
 
 function ChatScreen({chat, messages}) {
   const [user] = useAuthState(auth);
@@ -70,6 +71,9 @@ function ChatScreen({chat, messages}) {
         block: "start"
       });
   }
+  useEffect(()=>{
+    scrollToBottom();
+  },[])
 
   return (
     <Container>
