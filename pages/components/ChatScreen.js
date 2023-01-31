@@ -72,6 +72,7 @@ function ChatScreen({chat, messages}) {
       });
   }
   useEffect(()=>{
+    console.log("Called UseEffect");
     scrollToBottom();
   },[])
 
