@@ -36,6 +36,7 @@ function ChatScreen({chat, messages}) {
           <Message key={message.id} user={message.data().user} message={{...message.data(), timestamp: message.data().timestamp?.toDate().getTime()}} />
         ))
       }
+      scrollToBottom();
   }
 
   const sendMessage = (e)=>{
@@ -80,7 +81,7 @@ function ChatScreen({chat, messages}) {
   
   useEffect(()=>{
     scrollToBottom();
-    console.log("Function is Called...");
+    console.log("Function is getting Called...");
   },[])
   
   
