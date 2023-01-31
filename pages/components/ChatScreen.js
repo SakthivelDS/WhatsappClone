@@ -100,7 +100,7 @@ function ChatScreen({chat, messages}) {
             }
           </HeaderInformation>
           <HeaderIcons>
-              <button onClick={()=>scrollToBottom()}>Scroll</button>
+              <button onClick={scrollToBottom}>Scroll</button>
               <AttachFile />
               <MoreVert />
           </HeaderIcons>
