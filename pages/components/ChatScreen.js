@@ -72,6 +72,12 @@ function ChatScreen({chat, messages}) {
       });
   }
   
+  const scrollToBottomFirst = ()=>{
+    endOfMessageRef.current.scrollIntoView({
+      block:"start"
+     })
+  }
+  
   useEffect(()=>{
     scrollToBottom();
     console.log("Function Called...");
